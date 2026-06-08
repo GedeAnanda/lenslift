@@ -21,6 +21,12 @@
 		B8241C3C2FD6AFD0008E4BD0 /* WorkoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutService.swift; sourceTree = "<group>"; };
 		B8241C3D2FD6B48A008E4BD0 /* ScheduleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleService.swift; sourceTree = "<group>"; };
 		B8241C3E2FD6B528008E4BD0 /* BodyWeightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyWeightService.swift; sourceTree = "<group>"; };
+		B8241C3F2FD6D3D6008E4BD0 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		B8241C402FD72166008E4BD0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B8241C412FD73E3F008E4BD0 /* NutritionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionViewModel.swift; sourceTree = "<group>"; };
+		B8241C422FD748F9008E4BD0 /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
+		B8241C432FD74C6D008E4BD0 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
+		B8241C442FD74CB0008E4BD0 /* ProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewModel.swift; sourceTree = "<group>"; };
 		B85776322FD5571300571129 /* LensLift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LensLift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -71,6 +77,12 @@
 		B85776422FD5580800571129 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B8241C442FD74CB0008E4BD0 /* ProgressViewModel.swift */,
+				B8241C432FD74C6D008E4BD0 /* ScheduleViewModel.swift */,
+				B8241C422FD748F9008E4BD0 /* WorkoutViewModel.swift */,
+				B8241C412FD73E3F008E4BD0 /* NutritionViewModel.swift */,
+				B8241C402FD72166008E4BD0 /* HomeViewModel.swift */,
+				B8241C3F2FD6D3D6008E4BD0 /* AuthViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
