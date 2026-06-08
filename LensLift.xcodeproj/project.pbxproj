@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		B8241C312FD5E1F1008E4BD0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B8241C322FD5E2F9008E4BD0 /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
+		B8241C332FD5E720008E4BD0 /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
+		B8241C342FD5E9BB008E4BD0 /* FoodModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModels.swift; sourceTree = "<group>"; };
+		B8241C352FD5ED2E008E4BD0 /* WorkoutModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutModels.swift; sourceTree = "<group>"; };
+		B8241C362FD5EE23008E4BD0 /* ScheduleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModels.swift; sourceTree = "<group>"; };
+		B8241C372FD5EE4C008E4BD0 /* BodyWeightModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyWeightModels.swift; sourceTree = "<group>"; };
+		B8241C382FD67118008E4BD0 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		B85776322FD5571300571129 /* LensLift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LensLift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		B85776342FD5571300571129 /* LensLift */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = LensLift;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B857762F2FD5571300571129 /* Frameworks */ = {
@@ -32,7 +32,11 @@
 		B85776292FD5571300571129 = {
 			isa = PBXGroup;
 			children = (
-				B85776342FD5571300571129 /* LensLift */,
+				B85776452FD5581A00571129 /* Views */,
+				B85776442FD5581500571129 /* Utils */,
+				B85776432FD5580F00571129 /* Services */,
+				B85776422FD5580800571129 /* ViewModels */,
+				B85776412FD557FB00571129 /* Models */,
 				B85776332FD5571300571129 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +47,97 @@
 				B85776322FD5571300571129 /* LensLift.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B85776412FD557FB00571129 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B8241C372FD5EE4C008E4BD0 /* BodyWeightModels.swift */,
+				B8241C362FD5EE23008E4BD0 /* ScheduleModels.swift */,
+				B8241C352FD5ED2E008E4BD0 /* WorkoutModels.swift */,
+				B8241C342FD5E9BB008E4BD0 /* FoodModels.swift */,
+				B8241C332FD5E720008E4BD0 /* ProfileModels.swift */,
+				B8241C322FD5E2F9008E4BD0 /* AuthModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B85776422FD5580800571129 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B85776432FD5580F00571129 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B8241C382FD67118008E4BD0 /* APIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B85776442FD5581500571129 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B8241C312FD5E1F1008E4BD0 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B85776452FD5581A00571129 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B857764B2FD5584700571129 /* Progress */,
+				B857764A2FD5584100571129 /* Schedule */,
+				B85776492FD5583D00571129 /* Workout */,
+				B85776482FD5583600571129 /* Nutrition */,
+				B85776472FD5583000571129 /* Home */,
+				B85776462FD5582C00571129 /* Auth */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B85776462FD5582C00571129 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		B85776472FD5583000571129 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B85776482FD5583600571129 /* Nutrition */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Nutrition;
+			sourceTree = "<group>";
+		};
+		B85776492FD5583D00571129 /* Workout */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Workout;
+			sourceTree = "<group>";
+		};
+		B857764A2FD5584100571129 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		B857764B2FD5584700571129 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Progress;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +154,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				B85776342FD5571300571129 /* LensLift */,
 			);
 			name = LensLift;
 			packageProductDependencies = (
