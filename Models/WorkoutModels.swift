@@ -140,3 +140,5 @@ struct SessionDetailResponse: Codable {
         case logs
     }
 }
+
+struct EndSessionRequest: Codable {}

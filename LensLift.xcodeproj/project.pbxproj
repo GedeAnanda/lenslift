@@ -15,6 +15,12 @@
 		B8241C362FD5EE23008E4BD0 /* ScheduleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModels.swift; sourceTree = "<group>"; };
 		B8241C372FD5EE4C008E4BD0 /* BodyWeightModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyWeightModels.swift; sourceTree = "<group>"; };
 		B8241C382FD67118008E4BD0 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		B8241C392FD68D9F008E4BD0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		B8241C3A2FD6A3AC008E4BD0 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		B8241C3B2FD6AADB008E4BD0 /* FoodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodService.swift; sourceTree = "<group>"; };
+		B8241C3C2FD6AFD0008E4BD0 /* WorkoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutService.swift; sourceTree = "<group>"; };
+		B8241C3D2FD6B48A008E4BD0 /* ScheduleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleService.swift; sourceTree = "<group>"; };
+		B8241C3E2FD6B528008E4BD0 /* BodyWeightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyWeightService.swift; sourceTree = "<group>"; };
 		B85776322FD5571300571129 /* LensLift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LensLift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -72,6 +78,12 @@
 		B85776432FD5580F00571129 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B8241C3E2FD6B528008E4BD0 /* BodyWeightService.swift */,
+				B8241C3D2FD6B48A008E4BD0 /* ScheduleService.swift */,
+				B8241C3C2FD6AFD0008E4BD0 /* WorkoutService.swift */,
+				B8241C3B2FD6AADB008E4BD0 /* FoodService.swift */,
+				B8241C3A2FD6A3AC008E4BD0 /* ProfileService.swift */,
+				B8241C392FD68D9F008E4BD0 /* AuthService.swift */,
 				B8241C382FD67118008E4BD0 /* APIService.swift */,
 			);
 			path = Services;
