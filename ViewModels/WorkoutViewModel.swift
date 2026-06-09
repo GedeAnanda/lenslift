@@ -5,6 +5,10 @@
 //  Created by I Gede Ananda Bela Persada on 09/06/26.
 //
 
+import Foundation
+import SwiftUI
+import Combine
+
 class WorkoutViewModel: ObservableObject {
     @Published var templates: [WorkoutTemplateListResponse] = []
     @Published var activeSession: SessionResponse?

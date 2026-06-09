@@ -16,17 +16,17 @@ class ScheduleService {
     
     // MARK: - Get All Schedules
     func getSchedules() async throws -> [ScheduleResponse] {
-        return try await api.get(endpoint:"/schedules")
+        return try await api.get(endpoint:"/api/schedules")
     }
     
     // MARK: - Set Schedule
     func setSchedule(dayOfWeek: String, templateId: String) async throws -> ScheduleResponse {
         let body = ScheduleRequest(dayOfWeek: dayOfWeek, templateId: templateId)
-        return try await api.post(endpoint: "/schedules", body: body)
+        return try await api.post(endpoint: "/api/schedules", body: body)
     }
     
     // MARK: - Delete Schedule
     func deleteSchedule(day: String) async throws {
-        try await api.delete(endpoint: "/schedules/\(day)")
+        try await api.delete(endpoint: "/api/schedules/\(day)")
     }
 }

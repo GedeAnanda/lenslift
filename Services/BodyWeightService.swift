@@ -17,22 +17,22 @@ class BodyWeightService {
     //MARK: - Log Weight
     func logWeight(weightKg: Double, notes: String = "") async throws -> BodyWeightResponse {
         let body = BodyWeightRequest(weightKg: weightKg, notes: notes)
-        return try await api.post(endpoint:"/body-weights", body: body)
+        return try await api.post(endpoint:"/api/body-weights", body: body)
     }
     
     // MARK : - Get History
     func getHistory()async throws -> [BodyWeightResponse] {
-        return try await api.get(endpoint:"body-weights")
+        return try await api.get(endpoint:"/api/body-weights")
     }
     
     // MARK: - Get Latest
     func getLatest() async throws -> BodyWeightResponse {
-        return try await api.get(endpoint: "/body-weights/latest")
+        return try await api.get(endpoint: "/api/body-weights/latest")
     }
     
     // MARK: - Delete
     func deleteWeight(id: String) async throws {
-        try await api.delete(endpoint: "/body-weights/\(id)")
+        try await api.delete(endpoint: "/api/body-weights/\(id)")
     }
 }
 

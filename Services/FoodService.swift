@@ -16,27 +16,28 @@ class FoodService {
     
     //MARK: - Add Manual
     func addFoodLog(
-        foodName:String,
-        calories:Double,
-        proteinG:Double,
-        carbsG:Double,
-        fatG: Double,
+        foodName: String,
+        calories: Double,
+        proteinG: Double,
+        carbsG: Double,
+        fatG: Double
     ) async throws -> FoodLogWithSummary {
         let body  = FoodLogRequest(
             foodName: foodName,
             calories: calories,
             proteinG: proteinG,
             carbsG: carbsG,
-            fatG: fatG
+            fatG: fatG,
+            logDate: nil
         )
         return try await api.post(
-            endpoint:"/food-logs", body: body
+            endpoint:"/api/food-logs", body: body
         )
     }
     
     //MARK: - Get Daily Logs
-    func getDailyLogs(date: String? = nil) async throws -> DailyFoodLog {
-        var endpoint = "/food-logs"
+    func getDailyLogs(date: String? = nil) async throws -> DailyFoodLogs {
+        var endpoint = "/api/food-logs"
         if let date = date {
             endpoint += "?date=\(date)"
         }
@@ -44,13 +45,13 @@ class FoodService {
     }
     
     //MARK: - Delete Food Log
-    func deleteFoodLog(id: String) async throws -> {
-        try await api.delete(endpoint:"food-logs/\(id)")
+    func deleteFoodLog(id: String) async throws {
+        try await api.delete(endpoint: "/api/food-logs/\(id)")
     }
     
     // MARK: - Analyze Food (AI)
     func analyzeFood(imageData: Data) async throws -> FoodLogWithSummary {
-        guard let url = URL(string: "\(Constants.baseURL)/food-logs/analyze") else {
+        guard let url = URL(string: "\(Constants.baseURL)/api/food-logs/analyze") else {
             throw APIError.invalidURL
         }
         
@@ -79,7 +80,5 @@ class FoodService {
             throw APIError.serverError("Gagal analisis foto")
         }
         return try JSONDecoder().decode(FoodLogWithSummary.self, from: data)
-        }
-    
+    }
 }
-

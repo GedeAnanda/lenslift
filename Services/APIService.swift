@@ -70,18 +70,24 @@ class APIService {
             throw APIError.unauthorized
         }
         
-        if !(200...299).contains(httpResponse.statusCode ) {
+        if !(200...299).contains(httpResponse.statusCode) {
             let errorResponse = try? JSONDecoder().decode([String : String].self, from: data)
             throw APIError.serverError(errorResponse?["message"] ?? "Server error")
+        }
+        
+        if let jsonString = String(data: data, encoding: .utf8) {
+            print("GET RAW RESPONSE [\(endpoint)]: \(jsonString)")
         }
         
         do {
             let decoder = JSONDecoder()
             return try decoder.decode(T.self, from: data)
         } catch {
+            print("GET DECODE ERROR [\(endpoint)]: \(error)")
             throw APIError.decodingError
         }
     }
+    
     
     // MARK: -POST
     func post <T:Codable> (endpoint: String, body: Codable, requiresAuth: Bool = true) async throws -> T {
@@ -97,14 +103,19 @@ class APIService {
             throw APIError.unauthorized
         }
         
-        if !(200...299).contains(httpResponse.statusCode ) {
+        if !(200...299).contains(httpResponse.statusCode) {
             let errorResponse = try? JSONDecoder().decode([String : String].self, from: data)
             throw APIError.serverError(errorResponse?["message"] ?? "Server error")
+        }
+        
+        if let jsonString = String(data: data, encoding: .utf8) {
+            print("RAW RESPONSE: \(jsonString)")
         }
         
         do {
             return try JSONDecoder().decode(T.self, from: data)
         } catch {
+            print("DECODE ERROR: \(error)")
             throw APIError.decodingError
         }
     }

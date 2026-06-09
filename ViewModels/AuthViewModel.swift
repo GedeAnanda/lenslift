@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class AuthViewModel: ObservableObject {
     @Published var isLoggedIn: Bool = false
@@ -51,7 +52,7 @@ class AuthViewModel: ObservableObject {
         }
         
         do {
-            _= try await AuthService.shared.register(fullName: fullName, email: email, password: password)
+            _ = try await AuthService.shared.register(fullName: fullName, email: email, password: password)
             await MainActor.run {
                 isLoading = false
                 isLoggedIn = true

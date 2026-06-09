@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+import Combine
 
 class HomeViewModel: ObservableObject {
     @Published var profile: ProfileResponse?
@@ -22,7 +24,7 @@ class HomeViewModel: ObservableObject {
     private let bodyWeightService = BodyWeightService.shared
     
     //MARK: - Load Dashboard
-    func loadDashboard() {
+    func loadDashboard() async {
         await setLoading(true)
         
         await withTaskGroup(of: Void.self) { group in
@@ -39,9 +41,19 @@ class HomeViewModel: ObservableObject {
     private func loadProfile() async {
         do {
             let result = try await profileService.getProfile()
-            await MainActor.run {profile = result}
+            await MainActor.run { profile = result }
         } catch {
             print("Error load profile: \(error)")
+        }
+    }
+    
+    // MARK: - Load Today Food
+    private func loadTodayFood() async {
+        do {
+            let result = try await foodService.getDailyLogs(date: nil)
+            await MainActor.run { dailyFoodLogs = result }
+        } catch {
+            print("Error load food: \(error)")
         }
     }
     
@@ -50,9 +62,9 @@ class HomeViewModel: ObservableObject {
         do {
             let schedules = try await scheduleService.getSchedules()
             let today = getTodayDayOfWeek()
-            let result = schedules.first{$0.dayOfWeek == today}
-            await MainActor.run {todaySchedule = result}
-        }catch {
+            let result = schedules.first { $0.dayOfWeek == today }
+            await MainActor.run { todaySchedule = result }
+        } catch {
             print("Error load schedule: \(error)")
         }
     }

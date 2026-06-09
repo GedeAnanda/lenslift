@@ -15,7 +15,7 @@ class ProfileService {
     
     //MARK: - Get Profile
     func getProfile() async throws -> ProfileResponse {
-        return try await api.get(endpoint: "/profile")
+        return try await api.get(endpoint: "/api/profile")
     }
     
     //MARK: - Update Profile
@@ -35,6 +35,6 @@ class ProfileService {
             gender: gender,
             goal: goal
         )
-        return try await api.put(endpoint: "/profile", body: body)
+        return try await api.put(endpoint: "/api/profile", body: body)
     }
 }

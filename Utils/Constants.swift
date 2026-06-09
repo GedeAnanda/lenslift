@@ -9,7 +9,7 @@ import SwiftUI
 
 // MARK: - API
 struct Constants {
-    static let baseUrl = "https://localhost:8080/api"
+    static let baseURL = "http://192.168.1.24:8080"
 }
 
 

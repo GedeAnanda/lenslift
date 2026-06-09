@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class ScheduleViewModel: ObservableObject {
     @Published var schedules: [ScheduleResponse] = []

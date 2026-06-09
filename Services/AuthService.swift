@@ -17,7 +17,7 @@ class AuthService {
     func login (email: String, password: String) async throws -> AuthResponse {
         let body = LoginRequest(email: email, password: password)
         let response: AuthResponse = try await api.post(
-            endpoint:"auth/login",
+            endpoint:"/auth/login",
             body: body,
             requiresAuth: false
         )
@@ -29,7 +29,7 @@ class AuthService {
     func register (fullName: String, email: String, password: String) async throws -> AuthResponse {
         let body = RegisterRequest(fullName: fullName, email: email, password: password)
         let response: AuthResponse = try await api.post(
-            endpoint:"auth/register",
+            endpoint:"/auth/register",
             body: body,
             requiresAuth: false
         )

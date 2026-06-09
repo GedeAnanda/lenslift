@@ -15,9 +15,9 @@ struct LoginRequest: Codable {
 }
 
 struct RegisterRequest: Codable {
+    let fullName: String
     let email: String
     let password: String
-    let name: String
     
     enum CodingKeys: String, CodingKey {
         case fullName = "full_name"
@@ -39,7 +39,7 @@ struct AuthResponse: Codable {
 }
 
 struct UserProfile: Codable {
-    let id: Int
+    let id: String
     let fullName: String
     let email: String
     
