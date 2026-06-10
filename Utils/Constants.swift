@@ -9,8 +9,11 @@ import SwiftUI
 
 // MARK: - API
 struct Constants {
-    static let baseURL = "http://192.168.1.24:8080"
+//    static let baseURL = "http://192.168.1.24:8080"
+    
+        static let baseURL = "http://127.0.0.1:8080"
 }
+
 
 
 // MARK: - Colors
