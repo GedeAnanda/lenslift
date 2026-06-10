@@ -91,4 +91,20 @@ struct DailyFoodLogs: Codable {
     }
 }
 
+struct AIAnalyzeOnlyResponse: Codable {
+    let foodName: String
+    let calories: Double
+    let proteinG: Double
+    let carbsG: Double
+    let fatG: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case foodName = "food_name"
+        case calories
+        case proteinG = "protein_g"
+        case carbsG = "carbs_g"
+        case fatG = "fat_g"
+    }
+}
+
 

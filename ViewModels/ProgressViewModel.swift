@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 import Combine
 
 class ProgressViewModel: ObservableObject {
@@ -19,15 +18,12 @@ class ProgressViewModel: ObservableObject {
     private let bodyWeightService = BodyWeightService.shared
     private let workoutService = WorkoutService.shared
 
-    // MARK: - Load Progress
     func loadProgress() async {
         await setLoading(true)
-
         await withTaskGroup(of: Void.self) { group in
             group.addTask { await self.loadWeightHistory() }
             group.addTask { await self.loadRecentSessions() }
         }
-
         await setLoading(false)
     }
 
@@ -43,14 +39,15 @@ class ProgressViewModel: ObservableObject {
     private func loadRecentSessions() async {
         do {
             let result = try await workoutService.getSessions()
-            await MainActor.run { recentSessions = result }
+            await MainActor.run {
+                recentSessions = Array(result.prefix(10))
+            }
         } catch {
             print("Error load sessions: \(error)")
         }
     }
 
-    // MARK: - Log Weight
-    func logWeight(weightKg: Double, notes: String) async {
+    func logWeight(weightKg: Double, notes: String = "") async {
         do {
             _ = try await bodyWeightService.logWeight(weightKg: weightKg, notes: notes)
             await loadWeightHistory()
@@ -61,40 +58,38 @@ class ProgressViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Delete Weight
     func deleteWeight(id: String) async {
         do {
             try await bodyWeightService.deleteWeight(id: id)
             await loadWeightHistory()
         } catch {
-            await MainActor.run { showErrorMessage("Gagal hapus data berat") }
+            await MainActor.run { showErrorMessage("Gagal hapus data") }
         }
     }
 
-    // MARK: - Computed
     var latestWeight: Double {
         weightHistory.first?.weightKg ?? 0
     }
 
     var weightChange: Double {
-        guard let latest = weightHistory.first?.weightKg,
-              let oldest = weightHistory.last?.weightKg,
-              weightHistory.count > 1 else { return 0 }
-        return latest - oldest
+        guard weightHistory.count >= 2 else { return 0 }
+        return weightHistory[0].weightKg - weightHistory[weightHistory.count - 1].weightKg
     }
 
     var weeklyWorkouts: Int {
         let calendar = Calendar.current
         let now = Date()
-        guard let weekAgo = calendar.date(byAdding: .day, value: -7, to: now) else { return 0 }
-        let formatter = ISO8601DateFormatter()
+        let weekAgo = calendar.date(byAdding: .day, value: -7, to: now)!
         return recentSessions.filter { session in
-            guard let date = formatter.date(from: session.startedAt) else { return false }
+            guard let date = ISO8601DateFormatter().date(from: session.startedAt) else { return false }
             return date >= weekAgo
         }.count
     }
 
-    // MARK: - Helpers
+    var completedSessions: Int {
+        recentSessions.filter { $0.endedAt != nil }.count
+    }
+
     @MainActor
     private func setLoading(_ value: Bool) {
         isLoading = value

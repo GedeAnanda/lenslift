@@ -5,7 +5,6 @@
 //  Created by I Gede Ananda Bela Persada on 09/06/26.
 //
 
-import Foundation
 import SwiftUI
 
 struct MainTabView: View {
@@ -27,9 +26,9 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Schedule", systemImage: "calendar")
                 }
-            ProgressTrackingView()
+            ProfileView()
                 .tabItem {
-                    Label("Progress", systemImage: "chart.line.uptrend.xyaxis")
+                    Label("Profile", systemImage: "person.fill")
                 }
         }
         .tint(.lensGreen)

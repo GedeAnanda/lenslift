@@ -42,14 +42,20 @@ class WorkoutService {
         return try await api.post(endpoint: "/api/sessions/start", body: body)
     }
     
-    func logSet(sessionId: String, exerciseName: String, setNumber: Int, actualReps: Int, actualWeightKg: Double) async throws -> SessionLogResponse {
+    func logSet(
+        sessionId: String,
+        exerciseName: String,
+        setNumber: Int,
+        actualReps: Int,
+        actualWeightKg: Double
+    ) async throws -> SessionLogResponse {
         let body = LogSetRequest(
             exerciseName: exerciseName,
             setNumber: setNumber,
             actualReps: actualReps,
             actualWeightKg: actualWeightKg
         )
-        
+        print("LOG SET BODY: exercise=\(exerciseName) set=\(setNumber) reps=\(actualReps) weight=\(actualWeightKg)")
         return try await api.post(endpoint: "/api/sessions/\(sessionId)/log", body: body)
     }
     

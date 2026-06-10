@@ -221,23 +221,7 @@ struct FoodLogRow: View {
                         .font(.system(size: 15, weight: .medium))
                         .foregroundColor(.white)
 
-                    if log.source == "ai_photo" {
-                        Text("AI")
-                            .font(.system(size: 10, weight: .bold))
-                            .foregroundColor(.black)
-                            .padding(.horizontal, 6)
-                            .padding(.vertical, 2)
-                            .background(Color.lensGreen)
-                            .cornerRadius(4)
-                    } else {
-                        Text("Manual")
-                            .font(.system(size: 10))
-                            .foregroundColor(.lensTextMuted)
-                            .padding(.horizontal, 6)
-                            .padding(.vertical, 2)
-                            .background(Color.lensSurface2)
-                            .cornerRadius(4)
-                    }
+
                 }
                 Text("\(Int(log.proteinG))g protein")
                     .font(.system(size: 12))

@@ -108,6 +108,7 @@ struct SessionLogResponse: Codable {
     let actualReps: Int
     let actualWeightKg: Double
     let loggedAt: String
+    let notes: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -116,6 +117,7 @@ struct SessionLogResponse: Codable {
         case actualReps = "actual_reps"
         case actualWeightKg = "actual_weight_kg"
         case loggedAt = "logged_at"
+        case notes
     }
 }
 
@@ -128,6 +130,7 @@ struct SessionDetailResponse: Codable {
     let totalSets: Int
     let totalVolumeKg: Double
     let logs: [SessionLogResponse]
+    let notes: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -138,6 +141,7 @@ struct SessionDetailResponse: Codable {
         case totalSets = "total_sets"
         case totalVolumeKg = "total_volume_kg"
         case logs
+        case notes
     }
 }
 

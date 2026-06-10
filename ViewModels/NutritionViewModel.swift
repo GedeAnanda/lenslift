@@ -1,12 +1,3 @@
-//
-//  NutritionViewmodel.swift
-//  LensLift
-//
-//  Created by I Gede Ananda Bela Persada on 09/06/26.
-//
-
-
-
 import Foundation
 import SwiftUI
 import Combine
@@ -19,11 +10,9 @@ class NutritionViewModel: ObservableObject {
     @Published var showError = false
     @Published var showSuccess = false
     @Published var successMessage = ""
-    
-    
+
     private let foodService = FoodService.shared
-    
-    // MARK: - Load Daily Logs
+
     func loadDailyLogs(date: String? = nil) async {
         await setLoading(true)
         do {
@@ -39,8 +28,7 @@ class NutritionViewModel: ObservableObject {
             }
         }
     }
-    
-    // MARK: - Add Manual Food Log
+
     func addFoodLog(
         foodName: String,
         calories: Double,
@@ -74,35 +62,7 @@ class NutritionViewModel: ObservableObject {
             }
         }
     }
-    
-    // MARK: - Analyze Food Photo
-    func analyzeFood(imageData: Data) async {
-        await MainActor.run { isAnalyzing = true }
-        do {
-            let result = try await foodService.analyzeFood(imageData: imageData)
-            await MainActor.run {
-                isAnalyzing = false
-                dailyLogs = DailyFoodLogs(
-                    logs: (dailyLogs?.logs ?? []) + [result.foodLog],
-                    dailySummary: result.dailySummary
-                )
-                successMessage = "\(result.foodLog.foodName) berhasil dianalisis dan ditambahkan!"
-                showSuccess = true
-            }
-        } catch APIError.serverError(let message) {
-            await MainActor.run {
-                isAnalyzing = false
-                showErrorMessage(message)
-            }
-        } catch {
-            await MainActor.run {
-                isAnalyzing = false
-                showErrorMessage("Gagal analisis foto makanan")
-            }
-        }
-    }
-    
-    // MARK: - Delete Food Log
+
     func deleteFoodLog(id: String) async {
         do {
             try await foodService.deleteFoodLog(id: id)
@@ -113,8 +73,7 @@ class NutritionViewModel: ObservableObject {
             }
         }
     }
-    
-    // MARK: - Computed Properties
+
     var totalCalories: Double {
         dailyLogs?.dailySummary.totalCalories ?? 0
     }
@@ -145,7 +104,6 @@ class NutritionViewModel: ObservableObject {
         dailyLogs?.logs ?? []
     }
 
-    // MARK: - Helpers
     @MainActor
     private func setLoading(_ value: Bool) {
         isLoading = value
@@ -155,6 +113,4 @@ class NutritionViewModel: ObservableObject {
         errorMessage = message
         showError = true
     }
-    
-    
 }

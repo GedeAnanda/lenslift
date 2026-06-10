@@ -45,6 +45,8 @@
 		B8241C7A2FD75184008E4BD0 /* BodyWeightModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8241C372FD5EE4C008E4BD0 /* BodyWeightModels.swift */; };
 		B8241C7B2FD75184008E4BD0 /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8241C322FD5E2F9008E4BD0 /* AuthModels.swift */; };
 		B8241C7C2FD75184008E4BD0 /* FoodModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8241C342FD5E9BB008E4BD0 /* FoodModels.swift */; };
+		B8241C7F2FD95DD5008E4BD0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8241C7E2FD95DD4008E4BD0 /* ProfileView.swift */; };
+		B8241C812FD95DF2008E4BD0 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8241C802FD95DEE008E4BD0 /* EditProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,8 @@
 		B8241C572FD75029008E4BD0 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		B8241C582FD75035008E4BD0 /* LogWeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogWeightView.swift; sourceTree = "<group>"; };
 		B8241C7D2FD75B1B008E4BD0 /* LensLift-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "LensLift-Info.plist"; sourceTree = "<group>"; };
+		B8241C7E2FD95DD4008E4BD0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B8241C802FD95DEE008E4BD0 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		B85776322FD5571300571129 /* LensLift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LensLift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -176,6 +180,8 @@
 		B85776452FD5581A00571129 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B8241C802FD95DEE008E4BD0 /* EditProfileView.swift */,
+				B8241C7E2FD95DD4008E4BD0 /* ProfileView.swift */,
 				B857764B2FD5584700571129 /* Progress */,
 				B857764A2FD5584100571129 /* Schedule */,
 				B85776492FD5583D00571129 /* Workout */,
@@ -325,6 +331,7 @@
 				B8241C692FD75153008E4BD0 /* OnboardingView.swift in Sources */,
 				B8241C6A2FD75153008E4BD0 /* LoginView.swift in Sources */,
 				B8241C622FD75140008E4BD0 /* FoodService.swift in Sources */,
+				B8241C812FD95DF2008E4BD0 /* EditProfileView.swift in Sources */,
 				B8241C632FD75140008E4BD0 /* ScheduleService.swift in Sources */,
 				B8241C642FD75140008E4BD0 /* APIService.swift in Sources */,
 				B8241C652FD75140008E4BD0 /* BodyWeightService.swift in Sources */,
@@ -334,6 +341,7 @@
 				B8241C722FD7516A008E4BD0 /* WorkoutView.swift in Sources */,
 				B8241C772FD75184008E4BD0 /* WorkoutModels.swift in Sources */,
 				B8241C782FD75184008E4BD0 /* ScheduleModels.swift in Sources */,
+				B8241C7F2FD95DD5008E4BD0 /* ProfileView.swift in Sources */,
 				B8241C792FD75184008E4BD0 /* ProfileModels.swift in Sources */,
 				B8241C7A2FD75184008E4BD0 /* BodyWeightModels.swift in Sources */,
 				B8241C7B2FD75184008E4BD0 /* AuthModels.swift in Sources */,
