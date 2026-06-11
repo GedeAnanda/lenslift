@@ -19,56 +19,40 @@ class AuthViewModel: ObservableObject {
     }
     
     // MARK: - Login
-    func login (email: String, password: String) async {
-        await MainActor.run {
-            isLoading = true
-        }
+    func login(email: String, password: String) async {
+        await MainActor.run { isLoading = true }
         
         do {
             _ = try await AuthService.shared.login(email: email, password: password)
             await MainActor.run {
                 isLoading = false
                 isLoggedIn = true
+                // User lama = skip onboarding
+                UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
             }
         } catch APIError.serverError(let message) {
-            await MainActor.run {
-                 isLoading = false
-                 errorMessage  = message
-                 showError = true
-            }
+            await MainActor.run { isLoading = false; errorMessage = message; showError = true }
         } catch {
-            await MainActor.run {
-                isLoading = false
-                errorMessage  = "Terjadi kesalahan, coba lagi"
-                showError = true
-            }
+            await MainActor.run { isLoading = false; errorMessage = "Terjadi kesalahan, coba lagi"; showError = true }
         }
     }
-    
+
     // MARK: - Register
     func register(fullName: String, email: String, password: String) async {
-        await MainActor.run {
-            isLoading = true
-        }
+        await MainActor.run { isLoading = true }
         
         do {
             _ = try await AuthService.shared.register(fullName: fullName, email: email, password: password)
             await MainActor.run {
                 isLoading = false
                 isLoggedIn = true
+                // User baru = tampilkan onboarding
+                UserDefaults.standard.set(false, forKey: "hasCompletedOnboarding")
             }
-        }  catch APIError.serverError(let message) {
-            await MainActor.run {
-                isLoading = false
-                errorMessage  = message
-                showError = true
-            }
+        } catch APIError.serverError(let message) {
+            await MainActor.run { isLoading = false; errorMessage = message; showError = true }
         } catch {
-            await MainActor.run {
-                isLoading = false
-                errorMessage = "Terjadi kesalahan, coba lagi"
-                showError = true
-            }
+            await MainActor.run { isLoading = false; errorMessage = "Terjadi kesalahan, coba lagi"; showError = true }
         }
     }
     

@@ -1,22 +1,20 @@
-//
-//  LensLiftApp.swift
-//  LensLift
-//
-//  Created by I Gede Ananda Bela Persada on 09/06/26.
-//
-
-import Foundation
 import SwiftUI
 
 @main
 struct LensLiftApp: App {
-    @StateObject var authViewModel = AuthViewModel()
-
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
+    @StateObject private var authViewModel = AuthViewModel()
+    
     var body: some Scene {
         WindowGroup {
             if authViewModel.isLoggedIn {
-                MainTabView()
-                    .environmentObject(authViewModel)
+                if hasCompletedOnboarding {
+                    MainTabView()
+                        .environmentObject(authViewModel)
+                } else {
+                    OnboardingView(hasCompletedOnboarding: $hasCompletedOnboarding)
+                        .environmentObject(authViewModel)
+                }
             } else {
                 LoginView()
                     .environmentObject(authViewModel)
